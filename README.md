@@ -73,50 +73,7 @@ To clone and use this model, follow these steps:
 
 ## Usage
 
-### 1. Predicting with the Model
-
-Once you have the model loaded, you can make predictions on any image using the following script.
-
-```python
-import tensorflow as tf
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.mobilenet_v3 import preprocess_input
-import numpy as np
-import sys
-
-def load_model(model_path):
-    return tf.keras.models.load_model(model_path)
-
-def predict_image(model, image_path):
-    img = image.load_img(image_path, target_size=(224, 224))
-    img_array = image.img_to_array(img)
-    img_array = np.expand_dims(img_array, axis=0)
-    img_array = preprocess_input(img_array)
-
-    predictions = model.predict(img_array)
-    predicted_class = np.argmax(predictions, axis=1)
-
-    return predicted_class
-
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python predict.py <image_path>")
-        sys.exit(1)
-
-    image_path = 'test.png'  # Replace with your image path
-    model_path = 'predictfruit.keras'
-    
-    model = load_model(model_path)
-    result = predict_image(model, image_path)
-    print(f'Predicted class index: {result}')
-
-    sys.exit(0)
-
-if __name__ == "__main__":
-    main()
-```
-
-### 2. Running Predictions
+### Running Predictions
 
 You can run predictions on any image using the following command:
 
