@@ -83,21 +83,60 @@ The model was evaluated using various metrics. Below is a detailed classificatio
 
 ## Usage
 
-### Loading the Model
+```markdown
+# Fruits and Vegetables Classifier
 
-```python
-import tensorflow as tf
+This repository contains a pre-trained model for classifying images of fruits and vegetables. 
 
-# Load the Keras model
-model = tf.keras.models.load_model('predictfruit.keras')
+## How to Use
 
-# Convert to TFLite model
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
-tflite_model = converter.convert()
+### 1. Clone the Repository
 
-# Save the TFLite model
-with open('predictfruit.tflite', 'wb') as f:
-    f.write(tflite_model)
+```bash
+git clone https://github.com/yourusername/Fruits-and-vegetables-Classifier.git
+cd Fruits-and-vegetables-Classifier
+```
+
+### 2. Set Up the Environment
+
+Create and activate a virtual environment (optional but recommended):
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment:
+
+- **Windows**:
+
+  ```bash
+  venv\Scripts\activate
+  ```
+
+- **macOS/Linux**:
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Make Predictions
+
+To make predictions, use the `predict.py` script. Provide the path to the image as a command-line argument:
+
+```bash
+python predict.py path_to_your_image.jpg
+```
+
+Replace `path_to_your_image.jpg` with the path to the image you want to classify.
+
+The script will output the predicted class index.
+
 ```
 
 ### Model Inference
