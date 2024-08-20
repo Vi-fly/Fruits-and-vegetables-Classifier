@@ -2,6 +2,28 @@
 
 This project is a deep learning-based image classifier built using TensorFlow and Keras. The model is designed to classify images into one of 36 different categories of fruits and vegetables. The classifier is based on the MobileNetV3Small architecture, which is a lightweight model suitable for mobile and embedded applications.
 
+## Project Structure
+
+- **Training Script**: `train_model.py` - Contains the code to train the model.
+- **Model File**: `predictfruit.keras` - The saved Keras model.
+
+## Model Details
+
+### Architecture
+
+- **Base Model**: MobileNetV3Small, pre-trained on ImageNet, used as the feature extractor.
+- **Custom Layers**:
+  - **Dense Layers**: Two dense layers with 128 units each and ReLU activation.
+  - **Output Layer**: A dense layer with 36 units (one for each class) and softmax activation for classification.
+
+### Training
+
+- **Data Augmentation**: Includes rotation, zoom, shift, shear, and horizontal flip.
+- **Loss Function**: Categorical Crossentropy
+- **Optimizer**: Adam
+- **Metrics**: Accuracy
+- **Early Stopping**: Monitors validation loss with a patience of 2 epochs.
+- 
 ## Features
 
 - **36-Class Classification:** The model can classify images of 36 different fruits and vegetables.
